@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("static/images/banner.jpg");
+    }
+
+    .button-container {
+      text-align: center;
+    }
+    .button-container p{
+      color:black
+    }
+
+    .button {
+      margin: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(to right,#ff105f,#ffad06);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+    }
+
+    .profile-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+    }
+
+    .logout-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(to right,#ff105f,#ffad06);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+
+    /* Style for the side navbar */
+    .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background: linear-gradient(to right,#ff105f,#ffad06);
+       overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .sidenav a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    /* Show the side navbar when clicking the Profile button */
+    .sidenav.open {
+      left: 0;
+    }
+    
+    .button-container p {
+      font-size: 40px;
+      font-family: 'Times New Roman', Times, serif;
+      color: white
+    }
+
+    .notification {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+   
+  </style>
+</head>
+<body>
+  <div class="mes">
+  </div>
+
+  <a class="button profile-button" href="javascript:void(0);" onclick="openNav()">
+    <span class="icon">&#128100;</span> Profile
+  </a>
+
+  <a class="logout-button" href="/index">
+    <span class="icon">&#128274;</span> Logout
+  </a>
+  
+
+  <div class="button-container">
+    <a class="button" href="/input">
+      <span class="icon">&#9993;</span> Send
+    </a>
+    <a class="button" href="/receive">
+      <span class="icon">&#9993;</span> Receive
+      <span class="notification">{{count}}</span>
+    </a>
+    <br>
+    <p style="color: black;">"Welcome to {{ name }}. You can now securely transmit confidential messages by utilizing the 'Send' button, and conveniently access your received messages through the 'Receive' button."</p>
+  </div><br>
+
+  <!-- Side navbar for profile details -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0);" class="closebtn" onclick="closeNav()">&times;</a>
+    <p><i class="icon">&#128100;</i> Name: {{ name }}</p>
+    <p><i class="icon">&#128101;</i> User ID: {{ userid }}</p>
+    <p><i class="icon">&#128222;</i> Ph No: {{ phone }}</p>
+  </div>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").classList.add("open");
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").classList.remove("open");
+    }
+  </script>
+</body>
+</html>

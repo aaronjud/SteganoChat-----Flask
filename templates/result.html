@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("static/images/banner.jpg");
+
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        .navbar button {
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background:linear-gradient(to right,#ff105f,#ffad06);
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #0057b3;
+        }
+
+        h1{
+            font-family:'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bolder;
+            color:rgb(3, 1, 1);
+        }
+        p{
+            font-family:'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bolder;
+            color:#f5f5f5
+
+
+        }
+        .result {
+            padding: 10px;
+            border: 2px solid #0073e6; /* Border color can be adjusted */
+            background-color: #f5f5f5; /* Background color can be adjusted */
+            max-width: 500px; /* Set a maximum width for the box */
+            margin: 20px auto; /* Center the box horizontally with some top margin */
+            border-radius: 10px; /* Add rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+    </style>
+
+    <title>Login Page</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/receive" >
+                <button><i class="fas fa-arrow-left"></i> Back</button>
+            </a>
+
+            <a href="/data">
+                <button><i class="fas fa-home"></i> Home</button>
+            </a>
+            
+
+            <a href="/index" >
+                <button><i class="icon">&#128274;</i> logout</button>
+            </a>
+        </nav>
+    </header>
+    <center>
+       <p>Your Hidden data is </p>
+        <div class="result">
+            <h1>{{ result }}</h1>
+        </div>
+</p<>
+   
+</body>
+
+</html>

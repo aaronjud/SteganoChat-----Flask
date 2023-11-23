@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Login</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+	<style>
+       
+        body{
+            margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("static/images/banner.jpg");
+        }
+        /* Styling for the eye button */
+        .toggle-password {
+            position: relative;
+            top: -25px;
+            right: -85px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .input-field {
+            width: 300px; /* Adjust the width as needed */
+            height: 40px; /* Adjust the height as needed */
+            margin: 10px 0; /* Adjust the margin as needed */
+        }
+        
+        .form-box {
+            margin-bottom: 30%;
+            width: 400px; /* Adjust the width of the form box as needed */
+            height: 800px; /* Adjust the height of the form box as needed */
+            position: relative;
+            margin: 5% auto;
+            background: white;
+            padding: 5px;
+            overflow: hidden;
+        }
+        p{
+
+            font-size: 40px;
+            color:antiquewhite
+        }
+        
+    </style>	
+	<script>
+        // JavaScript function to toggle password visibility
+        function togglePassword1() {
+            const passwordInput1 = document.getElementById("passwordInput1");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            if (passwordInput1.type === "password") {
+                passwordInput1.type = "text";
+                eyeIcon.className = "fa fa-eye-slash";
+            } else {
+                passwordInput1.type = "password";
+                eyeIcon.className = "fa fa-eye";
+            }
+        }
+		function togglePassword2() {
+            const passwordInput2 = document.getElementById("passwordInput2");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            if (passwordInput2.type === "password") {
+                passwordInput2.type = "text";
+                eyeIcon.className = "fa fa-eye-slash";
+            } else {
+                passwordInput2.type = "password";
+                eyeIcon.className = "fa fa-eye";
+            }
+        }
+        function togglePassword3() {
+            const passwordInput2 = document.getElementById("passwordInput3");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            if (passwordInput2.type === "password") {
+                passwordInput2.type = "text";
+                eyeIcon.className = "fa fa-eye-slash";
+            } else {
+                passwordInput2.type = "password";
+                eyeIcon.className = "fa fa-eye";
+            }
+        }
+
+
+        
+       
+    </script>
+</head>
+<body>
+    
+    <div class="hero">
+        <div class="form-box"><center>
+            
+       
+            <p style="color: chocolate; font-family:'Times New Roman', Times, serif; font-style:italic">Steganochat</p>
+        </center>
+            <div class="button-box">
+                <div id="btn"> </div>
+                <button type="button" class="toggle-btn" onclick="login()"> Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()"> Register </button>
+            </div>
+            <div class="social-icons">
+                <img src="static/images/fb.png">
+                <img src="static/images/tw.png">
+                <img src="static/images/gp.png">
+            </div>
+            <form action="/login" method='post'class="input-group" id="login">
+                <input type="text" class="input-field" name="userid" placeholder="user id" required>
+                <input type="password" id="passwordInput1" class="input-field" name="password" placeholder="Enter Your Password" required> 
+				<i class="fa fa-eye name" id="eyeIcon" onclick="togglePassword1()"></i>
+				<br>
+                <button type="submit" class="submit-btn">Log In </button>
+            </form>
+            <form action="/register" method='post' class="input-group" id="register">
+                <input type="text" class="input-field" name="name" placeholder="Enter Your Name" required>
+                <input type="text" class="input-field" name="userid" placeholder="Enter Your userid" required>
+                <input type="number" class="input-field" name="phone" placeholder="Enter Your phoneno" required>
+
+                <input type="password" id="passwordInput2"  class="input-field" name="password" placeholder="Enter Your Password" required> 
+                <i class="fa fa-eye names1 " id = "eyeIcon" onclick="togglePassword2()"></i>
+
+                <input type="password" id="passwordInput3"  class="input-field" name="confirm_pass" placeholder="Enter Your Password" required> 
+
+                <i class="fa fa-eye names1 " id = "eyeIcon" onclick="togglePassword3()"></i>
+
+                <button type="submit" class="submit-btn">Register</button>
+            </form>			
+        </div>
+    </div>
+	<script>
+        var x=document.getElementById("login");
+        var y=document.getElementById("register");
+        var z=document.getElementById("btn");
+
+        function register(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px";
+        }
+        function login(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0px";
+        }		
+    </script>
+
+
+
+
+
+    <script>
+        {% with messages = get_flashed_messages() %}  
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{  message  }}");
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </script>
+</body>
+</html>

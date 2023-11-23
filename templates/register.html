@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="static/css/style.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../images/banner.jpg);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #020000;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+       
+
+        /* Content styles */
+        .content {
+            max-width: 600px; /* Increased max-width */
+            margin: 0 auto;
+            padding: 20px 20px 50px; /* Increased padding, especially at the bottom */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .form {
+            /* Max-width and padding for the form */
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffffd5;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form label {
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            color: black;
+        }
+
+        .form input[type="text"],
+        .form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form input[type="file"] {
+            margin-top: 5px;
+        }
+
+        .form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+            background-color: #0073e6;
+            overflow: hidden;
+            
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+       
+            
+        }
+
+        .navbar a:hover {
+            background:linear-gradient(to right,#ff105f,#ffad06);
+        }
+
+        .navbar i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="navbar">
+            <a href="/index">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+
+    </div>
+       
+        <h1>Registration Form</h1>
+        <form class="form" action='/register' method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><label>Name</label><br></td>
+                    <td><input type="text" class="form-control" name="name"><br></td>
+                </tr>
+                <tr>
+                    <td><label>user id</label><br></td>
+                    <td><input type="text" class="form-control" name="userid"><br></td>
+                </tr>
+                <tr>
+                    <td><label>Phone number</label><br></td>
+                    <td><input type="text" class="form-control" name="phone"><br></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label><br></td>
+                    <td>
+                        <input type="password" class="form-control" name="pass" id="passwordField">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('passwordField')">
+                            <i class="fa fa-eye" id="passwordToggle"></i>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password</label><br></td>
+                    <td>
+                        <input type="password" class="form-control" name="confirm_pass" id="confirmPasswordField">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('confirmPasswordField')">
+                            <i class="fa fa-eye" id="confirmPasswordToggle"></i>
+                        </span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td></td><form><br>
+                    <td><input type="submit" value="Submit"></td> <!-- Submit button at the bottom -->
+                    
+                </tr>
+            </table>
+            
+        </form>
+    </center>
+    <script>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        alert("{{ message }}");
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+    <script>
+        function togglePasswordVisibility(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            const passwordToggle = document.getElementById(fieldId + "Toggle");
+    
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.classList.remove("fa-eye");
+                passwordToggle.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                passwordToggle.classList.remove("fa-eye-slash");
+                passwordToggle.classList.add("fa-eye");
+            }
+        }
+    </script>
+    
+</body>
+</html>
